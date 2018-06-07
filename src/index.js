@@ -135,16 +135,17 @@ const App = () => (
   <div className="container">
     <div className="debug">
       <p>调试信息：[浏览器高度:{window.innerHeight}]</p>
+      <p>调试信息：[UA:{navigator.userAgent}]</p>
     </div>
 
     <div className="container-left">
-      <List title="普通 sticky" />
-      <List title="普通 sticky" />
+      <List title="方案1" />
+      <List title="方案1" />
     </div>
 
     <div className="container-right">
-      <ListBetter title="优化 sticky" />
-      <ListBetter title="优化 sticky" />
+      <ListBetter title="方案2" />
+      <ListBetter title="方案2" />
     </div>
   </div>
 );
