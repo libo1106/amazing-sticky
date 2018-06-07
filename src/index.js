@@ -80,7 +80,7 @@ class ListBetter extends Component {
     this.element = this.el.current;
 
     this.initHeight();
-    this.enablePlaceholder();
+    // this.enablePlaceholder();
     this.enableSticky();
   }
 
@@ -107,12 +107,14 @@ class ListBetter extends Component {
    * 可滑动高度 = 容器高度 - 浏览器高度 + 吸顶元素高度
    */
   enableSticky() {
+    console.log("innerHeight", window.innerHeight);
+
     const wrapHeight =
-      this.height_container - window.outerHeight + this.height_header;
+      this.height_container - window.innerHeight + this.height_header;
 
     console.log(
       `整体高度${this.height_container}, 滑动高度 ${wrapHeight}, 浏览器高度 ${
-        window.outerHeight
+        window.innerHeight
       }`
     );
 
@@ -123,12 +125,18 @@ class ListBetter extends Component {
           height: `${wrapHeight}px`
         }
       });
+
+      this.enablePlaceholder();
     }
   }
 }
 
 const App = () => (
   <div className="container">
+    <div className="debug">
+      <p>调试信息：[浏览器高度:{window.innerHeight}]</p>
+    </div>
+
     <div className="container-left">
       <List title="普通 sticky" />
       <List title="普通 sticky" />
